@@ -23,7 +23,7 @@ val = number[3];
 
 // Find the index of value
 val = number.indexOf(88876); // if array match is return the index number if not -1
-console.log(number);
+
 // Mutating Array
 
 // Add on the end
@@ -39,8 +39,19 @@ console.log(number);
 // number.shift();
 // number.shift();
 
-// console.log(val);
-console.log(number);
-// console.log(val);
+// Slice
+// val = fruits.slice(0,2);
 
-// Hey 
+
+// Splice
+const fruits = ["Apple", "Banana", "Orange"];
+
+// Splice to Remove
+// val = fruits.splice(1,2);
+
+// Splice to Add
+// fruits.splice(3,0,"Lemon");
+
+console.log("Splice Return",val);
+console.log("Furits",fruits);
+

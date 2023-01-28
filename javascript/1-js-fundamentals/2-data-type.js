@@ -1,6 +1,6 @@
 // Primitive
 
-// data that is not an object and has no methods or properties.
+// “primitive”, because their values contain only a single thing
 
 // String
 const name = "Jagan";
@@ -27,7 +27,7 @@ const alsoHuge = BigInt(9007199254740991)
 // console.log(alsoHuge);
 // console.log(typeof alsoHuge);
 
-// Reference Type - Objects
+// Reference Type - Objects collection of data
 
 // Array
 const hobbies = ["movie", "music"];
