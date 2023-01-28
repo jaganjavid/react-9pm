@@ -1,0 +1,74 @@
+h1{
+    color: red;
+}
+
+/* .parent ul li:first-child{
+    color: red;
+}
+
+.parent ul li:nth-child(2){
+    color: green;
+}
+.parent ul li:nth-child(3){
+    color: rgb(0, 92, 128);
+}
+
+.parent ul li:last-child{
+    color: #120185;
+} */
+
+/* .parent ul li:nth-child(2n + 1){
+    color: green;
+} */
+
+div div:first-of-type{
+    color: red;
+}
+div div:last-of-type{
+    color: #1500ff;
+}
+
+div p:first-of-type{
+    color: #0dff00;
+}
+div p:nth-of-type(2){
+    color: #ff0095;
+}
+
+
+button{
+    margin-top: 50px;
+    background: blue;
+    color: #ffffff;
+    border: none;
+    border-radius: 0px;
+    padding: 15px 35px;
+    transition:all 2s;
+}
+
+button:hover{
+    background: rgb(255, 13, 0);
+    border-radius: 15px;
+}
+
+.width{
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    margin: 50px 0px;
+    border-radius: 50%;
+    transition:all 2s;
+}
+
+.width p{
+    display: none;
+    transition:all 2s 1s;
+}
+
+.width:hover p{
+    display: block;
+}
+
+.width:hover{
+    border-radius: 0%;
+}

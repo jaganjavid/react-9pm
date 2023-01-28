@@ -1,0 +1,514 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600;700;800;900&display=swap');
+@import "./variable.scss";
+
+@mixin myFlex{
+    display: flex;
+}
+@mixin mybg{
+    background-color: #F7EDE8;
+}
+
+@mixin myFlexmore{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+// // THis is for SCSS
+
+$primary-color: #CD4631;
+$sec-color: #4D4D4D;
+$third-color: #81ADC8;
+$heading-one: 65px;
+$heading-two: 40px;
+$heading-three: 25px;
+$heading-four: 16px;
+
+
+.talk,
+.listeners,
+.membership,
+.episodes{
+    position: relative;
+    padding: 120px 0px;
+}
+
+.membership{
+   h2{
+    position: relative;
+    display: inline-block;
+    img{
+        position: absolute;
+        top: -30px;
+        right: -30px;
+    }
+   }
+}
+
+.section-knot{
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    img{
+        width: 30px;
+        height: 100px;
+    }
+}
+
+// THis is for Css
+
+// :root{
+//    --primary-color: #000000;
+//    --sec-color: #4D4D4D;
+//    --third-color: #000305;
+//    --heading-one: 65px;
+//    --heading-two: 40px;
+//    --heading-three: 25px;
+//    --heading-four: 16px;
+// }
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0px;
+}
+
+// Heading Start
+
+h1{
+    font-size: $heading-one;
+    font-weight: 700;
+}
+h2{
+    font-size: $heading-two;
+    font-weight: 700;
+}
+h3{
+    font-size: $heading-three;
+    font-weight: 700;
+}
+h4{
+    font-size: $heading-four;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0px auto;
+    padding: 0px 15px;
+}
+
+.my-btn{
+    padding: 8px 15px;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    transition: all 0.40s;
+    &:hover{
+        color: #ffffff;
+        background-color: #000000;
+        box-shadow: 5px 5px #c0c0c0;
+    }
+       //some CSS
+  
+}
+
+.my-btn-solid{
+    @extend .my-btn;
+    background-color: #000000;
+    color: #ffffff;
+    display: inline-block;
+    transition: all 0.40s;
+    
+    &:hover{
+        box-shadow: 5px 5px #c0c0c0;
+    }
+  
+}
+
+.main-text-color{
+  color:$primary-color;
+}
+
+// header
+
+header{
+    @include mybg();
+    padding: 20px 0px;
+    .header-wrapper{
+        @include myFlexmore(); 
+        >div:first-child{
+            @include myFlexmore(); 
+            width: 40%;
+            ul{
+                @include myFlex();
+                gap: 30px;
+                li {
+                    a{
+                        color: #000000;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+        >div:last-child{
+            @include myFlex(); 
+            gap: 35px;
+        }
+        >div>ul>li:last-child{
+            position: relative;
+            // &:hover ul{
+            //    display: block;
+            // }
+            &:hover ul{
+               opacity: 1;
+               top: 20px;
+               pointer-events:all;
+            }
+        }
+        >div>ul>li:last-child ul{
+            // display: none;
+            pointer-events: none;
+            opacity: 0;
+            position: absolute;
+            flex-direction: column;
+            gap: 0px;
+            width: 300px;
+            top: 50px;
+            left: 0px;
+            background-color: rgb(244, 244, 244);
+            transition: all 0.30s;
+            li a{
+                padding: 15px;
+                display: block;
+                &:hover{
+                    background-color: rgb(223, 223, 223);
+                }
+            }
+        }
+    }
+      //some CSS
+      @media screen and (max-width: 768px) {
+        >div:last-child{
+            display: none;
+        }
+
+        .header-wrapper{
+            display: none;
+        }
+    }
+}
+
+
+
+
+// Banner
+
+.banner{
+   padding: 80px 0px;
+   text-align: center;
+   @include mybg();
+   .banner-wrapper{
+    position: relative;
+   }
+   span{
+    color: $primary-color;
+    display: block;
+    margin-bottom: 35px;
+   }
+   p{
+    margin-bottom: 35px;
+   }
+   .my-btn-solid{
+    padding: 20px 50px;
+   }
+   .hang-img>:first-child{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0%;
+   }
+   .hang-img>:last-child{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 50px;
+   }
+
+   .banner-img{
+    @include myFlexmore();
+    margin-top: 80px;
+    div{
+        width: 30%;
+        position: relative;
+        img{
+            width: 100%;
+        }
+        h3{
+            position: absolute;
+            left: 10px;
+            bottom: 25px;
+            color: $third-color;
+        }
+    }
+    .banner-icon{
+        @include myFlex();
+        align-items: center;
+        gap: 15px;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        img{
+            width: 25px;
+        }
+
+        // @media screen and (max-width: 992px) {
+        //     h3{
+        //         right: 20px;
+        //     }
+          
+        // }
+    }
+   }
+   @media screen and (max-width: 768px) {
+    .banner-img{
+        flex-direction: column;
+        gap: 30px;
+        div{
+            width: 60%;
+        }
+        h3{
+            font-size: 25px;
+        }
+    }
+    .hang-img img{
+        width: 100px;
+        opacity: 0.5;
+    }
+   }
+   @media screen and (max-width: 800px) {
+    h3{
+        font-size: 20px;
+    }
+  
+   }
+
+   .supported{
+     margin-top: 80px;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     align-items: center;
+     padding: 30px;
+     border-top: 1px solid #000000;
+     border-bottom: 1px solid #000000;
+   }
+
+   .supported img{
+    width: 120px;
+   }
+
+   @media screen and (max-width: 576px) {
+    .supported img{
+        width: 80px;
+    }
+   }
+}
+
+// listeners Start
+
+.listeners{
+    background-color: #EDF3F7;
+}
+
+
+// Episodes
+
+.episodes{
+    background-color: #F7EDE8;
+
+    .episodes-wrapper{
+        .epi-box{
+            padding: 15px;
+            border: 1px solid #333333;
+            background-color: #ffffff;
+            border-radius: 10px;
+            // box-shadow: 8px 8px #81ADC8;
+            margin-bottom: 30px;
+            h4{
+                font-weight: 700;
+                margin: 10px 0px 0px 0px;
+                // padding: 0px 0px 15px 0px;
+                border-bottom: 1px soid grey;
+            }
+            p{
+                margin-top: 15px;
+            }
+           
+        }
+
+        >div:nth-child(even){
+           >div>div:last-child{
+              .epi-box{
+                box-shadow: 8px 8px #81adc8;
+              }
+           }
+        }
+        
+        >div:nth-child(odd){
+           >div>div:first-child{
+              .epi-box{
+                box-shadow: 8px 8px #81adc8;
+              }
+           }
+        }
+     
+       .hosted{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 25px;
+          >div:first-child{
+            display: flex;
+            gap: 15px;
+            span{
+                padding: 5px 20px;
+                border: 1px solid grey;
+                border-radius: 8px;
+            }
+          }
+       } 
+    }
+
+    @media screen and (max-width: 768px) {
+        .hosted{
+         flex-direction: column;
+         align-items: flex-start !important;
+         gap: 20px;
+        }
+       
+    }
+}
+
+// Contact
+
+.contact{
+    background-color: #F7EDE8;
+    padding: 80px 0px;
+    .container{
+        max-width: 600px;
+    }
+}
+
+// available
+
+.available{
+    padding: 200px 0px 250px 0px;
+    background:url("../img/avaiable/bg.png") no-repeat center;
+    background-size: cover;
+    >div{
+       div:first-of-type{
+         span{
+            border: 1px solid $primary-color;
+            padding: 5px;
+            color: $primary-color;
+         }
+       }
+       div:nth-child(3){
+        margin-top: 80px;
+        a{
+            position: relative;
+            img{
+                position: absolute;
+                top: -30px;
+                right: -30px;
+            }
+        }
+       }
+       div:nth-child(5){
+         img{
+            filter: invert(1);
+         }
+       }
+    }
+}
+
+// footer
+
+footer{
+    padding: 80px 0px;
+    ul li{
+        margin-bottom: 15px;
+        a{
+            color: #111111;
+            &:hover{
+              color: $primary-color;
+            }
+        }
+    }
+    .invert{
+        img{
+            filter: invert(1);
+        }
+    }
+}
+
+
+
+// .my-test-flex{
+//     @include myFlex();
+//     gap: 20px;
+//     div{
+//         width: 50%;
+//         height:300px;
+//         background-color: blue;
+//     }
+// }
+
+
+// .my-test-flex-2{
+//     @include myFlex();
+//     gap: 25px;
+//     div{
+//         width: 50%;
+//         height:300px;
+//         background-color: rgb(64, 255, 0);
+//     }
+// }
+
+
+// .my-btn-basic  {
+//     border: none;
+//     padding: 15px 30px;
+//     text-align: center;
+//     font-size: 16px;
+//     cursor: pointer;
+//     color: black;
+//     background-color: green;
+// }
+
+// .my-btn-hold{
+//     @extend .my-btn-basic; 
+//     background-color: rgb(244, 21, 84);
+// }
+
+// .my-btn-three{
+//     @extend .my-btn-basic;
+//     background-color: rgb(255, 0, 0);
+// }

@@ -1,0 +1,195 @@
+*{
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body{
+    background-color: #efefef;
+    color: #333333;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight:normal;
+    /* SAME AS ABOVE */
+    /* font: normal 16px Arial, Helvetica, sans-serif; */
+    line-height: 1.6;
+    /* margin: 0px; */
+}
+
+
+/* In CSS, the term "box model" is used when talking about design and layout.
+
+The CSS box model is essentially a box that wraps around every HTML element.
+ It consists of: margins, borders, padding, and the actual content. */
+
+.container{
+    width: 80%;
+    margin: 0px auto;
+}
+
+.box{
+  background-color: rgb(61, 61, 61); 
+  color: white;
+  border: 3px solid blue;
+  /* border-top: 5px solid blue;
+  border-right: 15px dashed red;
+  border-left: 25px dotted green;
+  border-bottom: 35px double yellow; */
+  /* padding-top: 70px;
+  padding-left: 100px;
+  padding-right: 150px;
+  padding-bottom: 180px; */
+  padding: 50px;
+  /* margin-top: 70px;
+  margin-left: 100px;
+  margin-right: 120px;
+  margin-bottom: 150px; */
+  /* margin: 50px; */
+
+  /* TOP > RIGHT > BOTTOM > LEFT */
+  /* margin: 50px 70px 80px 100px; */
+
+  /* TOP & BOTTOM > LEFT & RIGHT */
+  /* margin: 50px 100px; */
+}
+
+/* .box h1{
+    margin: 0px;
+}
+.box p{
+    margin: 0px;
+} */
+.heading{
+  font-size: 35px;
+  margin-bottom: 30px;
+}
+
+.categories{
+  padding: 50px 0px;
+}
+
+.categories ul{
+  padding: 0px;
+  list-style: none;
+}
+
+.categories ul{
+  border: solid 1px #333;
+  border-radius: 15px;
+}
+
+.categories ul li{
+   padding: 10px 15px;
+   border-bottom: solid 1px #333;
+}
+
+.no-border{
+  border-bottom: none !important;
+}
+
+
+/* FORM START */
+.my-form .form-group{
+  padding-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+}
+
+.my-form input[type="text"],.my-form input[type="email"],textarea{
+  padding: 8px;
+  width: 100%;
+}
+
+textarea{
+  height: 150px;
+}
+
+.my-form input[type="submit"]{
+  background-color: #111111;
+  color: #ffffff;
+  padding: 10px 15px;
+  border: none;
+}
+
+/* FORM END */
+
+.three-box{
+  padding: 50px 0px;
+}
+
+.block{
+  float: left;
+  width: 30%;
+  border: 1px solid grey;
+  padding: 10px;
+  margin: 15px;
+}
+
+.clr{
+  clear: both;
+}
+
+
+.pos-box{
+  width: 500px;
+  height: 500px;
+  background-color: blue;
+  /* margin: 0px auto; */
+  position: relative;
+  /* top: 50px;
+  left: 50px; */
+}
+
+.pos-box-child-1{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.pos-box-child-2{
+  width: 100px;
+  height: 100px;
+  background-color: #47fe1e;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+}
+
+.pos-box-child-3{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  top: 0px;
+  right: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+/* .box-size-1{
+  width: 200px;
+  height: 200px;
+  border: 2px solid blue;
+  margin-bottom: 50px;
+  padding: 50px;
+}
+
+.box-size-2{
+  width: 200px;
+  height: 200px;
+  border: 2px solid blue;
+  padding: 50px;
+  box-sizing: border-box;
+} */
+
