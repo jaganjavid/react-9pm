@@ -14,6 +14,9 @@ const person = {
     getFullName: function(){
     //    console.log(person.firstName + " " + person.lastName);
        return this.firstName + " " + this.lastName;
+    },
+    personWalk: function(){
+        return this.firstName + " " + "is walking";
     }
 }
 
@@ -24,6 +27,7 @@ console.log(person.hasKids);
 console.log(person.hobbies[1]);
 console.log(person.address.state);
 console.log(person.getFullName());
+console.log(person.personWalk())
 console.log(typeof person.getFullName());
 
 

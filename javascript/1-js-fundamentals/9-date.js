@@ -15,8 +15,22 @@ val = today.getSeconds();
 val = today.getMilliseconds();
 val = today.getTime();
 
-console.log(val);
-console.log(today);
+
+const birthDay = new Date("05-09-1990 10:20:55");
+
+birthDay.setMonth(2);
+birthDay.setDate(15);
+birthDay.setFullYear(2000);
+birthDay.setHours(5);
+birthDay.setMinutes(25);
+birthDay.setSeconds(59)
+
+
+
+
+
+console.log(birthDay);
+// console.log(today);
 
 
 
