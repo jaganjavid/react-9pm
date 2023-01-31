@@ -47,3 +47,8 @@ console.log(typeof person.getFullName());
 // console.log(typeof run());
 
 // "Hello";
+
+
+
+
+
