@@ -38,11 +38,22 @@ let scripts = document.scripts;
 //     i++;
 // }
 
-console.log(scripts);
+// console.log(scripts);
 
-let scriptsArr = Array.from(scripts);
+// let scriptsArr = Array.from(scripts);
 
-scriptsArr.forEach(function(element, index){
-    console.log(`my Index ${index} + ${element.src}`);
+// scriptsArr.forEach(function(jagan, index, arr){
+//     console.log(`my Index ${index} + ${jagan.src}`);
+
+//     console.log(arr);
+// })
+
+var arr = [1,2,3,4,5];
+
+for(let i = 0; i<arr.length; i++){
+    console.log(arr[i]);
+}
+
+arr.forEach(function(number, index){
+    console.log(`"ForEach",${number} + ${index})`);
 })
-
