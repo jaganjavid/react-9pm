@@ -102,8 +102,8 @@ function addTask(e){
     taskList.appendChild(li);
 
     // Store to ls
-    
     storeTaskInLocalStorage(taskInput.value);
+    
     // taskInput.value clear
     taskInput.value = "";
 
@@ -116,11 +116,8 @@ function storeTaskInLocalStorage(task){
   let tasks;
   if(localStorage.getItem("tasks") === null){
     tasks = [];
-    console.log("I will create a box");
   } else {
     tasks = JSON.parse(localStorage.getItem("tasks"));
-    console.log(tasks);
-    console.log("I got a box");
   }
 
   tasks.push(task);
