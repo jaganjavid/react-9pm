@@ -32,3 +32,10 @@ window.yo = "yoooo";
 console.log(MyObject.run()());
 // console.log(window);
 console.log(MyObject);
+
+
+// var MyObj = {
+//     name: "My Obj"
+// }
+
+// console.log(MyObj.name);

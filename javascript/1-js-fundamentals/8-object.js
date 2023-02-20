@@ -12,7 +12,7 @@ const person = {
     },
     // Method
     getFullName: function(){
-    //    console.log(person.firstName + " " + person.lastName);
+    // console.log(person.firstName + " " + person.lastName);
        return this.firstName + " " + this.lastName;
     },
     personWalk: function(){
