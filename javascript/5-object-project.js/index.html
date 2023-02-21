@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Project</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+
+    <style>
+        .alert{
+            padding: 10px;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        .alert.alert-success{
+            background-color: #43a047;
+        }
+        .alert.alert-error{
+            background-color: #d81b60;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <h1>Add Book</h1>
+
+        <form id="book-form">
+                <label for="title">
+                    Add Title
+                    <input type="text" id="title" placeholder="Add Title">
+                  </label>
+                <label for="author">
+                    Add author
+                    <input type="text" id="author" placeholder="Add author">
+                </label>
+                <label for="isbn">
+                    Add ISBN
+                    <input type="number" id="isbn" placeholder="Add ISBN">
+                </label>
+
+                 <!-- Button -->
+                <button type="submit">Submit</button>
+        </form>
+
+        <table role="grid">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">ISBN</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody id="book-list">
+              <!-- <tr>
+                <td>Build Wealth</td>
+                <td>Jagan</td>
+                <td>67675</td>
+                <td><a href="#">X</a></td>
+              </tr> -->
+
+              
+            </tbody>
+          </table>
+    </main>
+
+    <script src="./app-es6.js"></script>
+</body>
+</html>
