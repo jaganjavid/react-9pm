@@ -126,7 +126,7 @@ function storeTaskInLocalStorage(task){
 
 }
 
-// Remove The TAsk
+// Remove the Tssk
 
 function removeTask(e){
   if(e.target.parentElement.className === "delete-item secondary-content"){
