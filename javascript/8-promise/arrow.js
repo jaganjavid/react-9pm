@@ -34,7 +34,7 @@ const users = ["Javid", "guru", "Akash"];
 // })
 
 const nameLength = users.map((name) => {
-    return name.length; // as Array
+    return name.length; // as Array 
 })
 
 const allUser = users.forEach((name) => {
