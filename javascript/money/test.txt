@@ -1,0 +1,15 @@
+       populateItemList: function(items){
+            let html = "";
+
+            items.forEach(function(item){
+                html += `<li class="collection-item" id="item-${item.id}">
+                <strong>${item.name} : <em>${item.money}$</em></strong>
+                <a href="#" class="secondary-content">
+                    <i class="fa fa-pencil"></i>
+                </a>
+              </li>`;
+            })
+
+            // Insert into ul
+            document.querySelector(".collection").innerHTML = html;
+        }

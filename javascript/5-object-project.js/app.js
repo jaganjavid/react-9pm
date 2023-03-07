@@ -10,7 +10,6 @@ function Book(title, author, isbn){
 
 function UI(){
 
-
     UI.prototype.addBooktoList = function(book){
         const list = document.querySelector("#book-list");
         
@@ -78,6 +77,7 @@ function UI(){
 // Event Listener for Add Book
 
 document.getElementById("book-form").addEventListener("submit", function(e){
+
     e.preventDefault();
    
     const title = document.getElementById('title').value;
@@ -99,6 +99,7 @@ document.getElementById("book-form").addEventListener("submit", function(e){
         ui.showAlert("Book Added", "alert-success");
         ui.clearFields();
     }
+    
 })
 
 // Event Listener for Delete
@@ -116,3 +117,36 @@ document.getElementById("book-list").addEventListener("click", function(e){
 })
 
 
+// var arr = [
+//     {title:"Title 1"},
+//     {title:"Title 2"},
+//     {title:"Title 3"},
+// ]
+
+// function test(param){
+//     param.forEach(element => {
+//         console.log(element);
+//     });
+// }
+
+// test(arr);
+
+
+// function Data(title){
+//     this.title = title;
+// }
+
+// function Myui(){
+//     Myui.prototype.showData = function(data){
+//        document.body.innerHTML = data.title;
+//     }
+// }
+
+// const mydata = new Data("Hello Guys");
+
+// const ui = new Myui();
+
+// ui.showData(mydata);
+
+
+// console.log(mydata)
