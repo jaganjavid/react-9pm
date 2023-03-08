@@ -1,4 +1,4 @@
-const http = new EasyHTTP();
+const http = new EasyHTTP(); //INIT
 
 // Get User
 http.get("https://jsonplaceholder.typicode.com/users")
