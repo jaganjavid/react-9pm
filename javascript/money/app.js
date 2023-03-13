@@ -12,7 +12,7 @@
 const ItemCtrl = (function () {
     // Item Constructor
     const item = function (id, name, money) {
-        this.id = id;
+        this.id = id;   
         this.name = name;
         this.money = money;
     }
@@ -20,9 +20,9 @@ const ItemCtrl = (function () {
     // Data Structure / State
     const data = {
         items: [
-            {id: 0, name: "Mobile", money: 1200},
-            {id: 1, name: "Bike", money: 3000},
-            {id: 2, name: "Tv", money: 600},
+            // {id: 0, name: "Mobile", money: 1200},
+            // {id: 1, name: "Bike", money: 3000},
+            // {id: 2, name: "Tv", money: 600},
         ],
         currentItem: null,
         totalMoney: 0
@@ -78,6 +78,32 @@ const ItemCtrl = (function () {
         },
         setCurrentItem: function(item){
             data.currentItem = item;
+        },
+        updateItem: function(name, money){
+            // Money to number
+            money = parseInt(money);
+            let found = null;
+
+            data.items.forEach(function(item){
+                if(item.id === data.currentItem.id){
+                    item.name = name;
+                    item.money = money;
+                    found = item;
+                }
+            })
+            return found;
+        },
+        deleteItem: function(id){
+            // Get IDs 
+            const ids = data.items.map(function(item){
+                return item.id;
+            })
+            // Get Index
+            const index = ids.indexOf(id);
+            data.items.splice(index, 1);
+        },
+        clearAllItems: function(){
+            data.items = [];
         }
     }
 })();
@@ -90,10 +116,12 @@ const UICtrl = (function () {
 
     const UISelectors = {
         itemList: "#item-list",
+        listItems: "#item-list li",
         addBtn: ".add-btn",
         updateBtn: ".update-btn",
         deleteBtn: ".delete-btn",
         backBtn: ".back-btn",
+        clearBtn: ".clear-btn",
         itemNameInput: "#item-name",
         itemNameMoney: "#item-money",
         noItem: ".no-item",
@@ -182,6 +210,35 @@ const UICtrl = (function () {
            label.forEach(function(item){
                 item.classList.add("active");
            })
+        },
+        updateListItem: function(item){
+           let listItems = document.querySelectorAll(UISelectors.listItems);
+           
+           listItems.forEach(function(listItem){
+            const itemID = listItem.getAttribute("id");
+            
+            if(itemID === `item-${item.id}`){
+                document.querySelector(`#${itemID}`).innerHTML = `
+                    <strong>${item.name} : <em>${item.money}$</em></strong>
+                    <a href="#" class="secondary-content edit-item">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                `;
+            }
+            
+           })
+        },
+        deleteListItem: function(id){
+            const itemID = `#item-${id}`;
+            const item = document.querySelector(itemID);
+            item.remove();
+        },
+        removeItems: function(){
+            const listItems = document.querySelectorAll(UISelectors.listItems);
+
+            listItems.forEach(function(item){
+                item.remove();
+            })
         }
     }
 })();
@@ -196,10 +253,29 @@ const App = (function (ItemCtrl, UICtrl) {
     const UISelectors = UICtrl.getSelector();
 
     const loadEventListeners = function () {
+
+        // Add Event
         document.querySelector(".add-btn").addEventListener("click", itemAddSubmit);
 
         // Edit icon click event
         document.querySelector(UISelectors.itemList).addEventListener("click", itemEditClick);
+
+        // Update Item Event
+
+        document.querySelector(UISelectors.updateBtn).addEventListener("click", itemUpdateSubmit);
+
+        // Delete Item Event
+
+        document.querySelector(UISelectors.deleteBtn).addEventListener("click", itemDeleteSubmit);
+
+        // Clear Item Event
+        document.querySelector(UISelectors.clearBtn).addEventListener("click", clearAllItem);
+
+        // Back Button Event
+        document.querySelector(UISelectors.backBtn).addEventListener("click", function(e){
+            e.preventDefault();
+            UICtrl.clearEditState();
+        })
     }
 
 
@@ -230,7 +306,6 @@ const App = (function (ItemCtrl, UICtrl) {
             UICtrl.hideItem();
         }
     }
-
     // Edit Icon Click
 
     function itemEditClick(e) {
@@ -247,7 +322,7 @@ const App = (function (ItemCtrl, UICtrl) {
             const itemToEdit = ItemCtrl.getItemById(id);
 
             // Set Current Item
-            ItemCtrl.setCurrentItem(itemToEdit);
+            ItemCtrl.setCurrentItem(itemToEdit); 
 
             // Show All btn but not add btn
             UICtrl.showEditState();
@@ -259,6 +334,83 @@ const App = (function (ItemCtrl, UICtrl) {
             UICtrl.addItemToForm();
         }
     }
+
+
+    // Item Update Submit
+
+    const itemUpdateSubmit = function(e){
+        //    Get Item Inout
+        const input = UICtrl.getItemInput();
+    
+        // Update Item
+        const updateItem = ItemCtrl.updateItem(input.name, input.money);
+    
+        // Update UI
+        UICtrl.updateListItem(updateItem);
+    
+        // Get Total MOney
+        const totalMoney = ItemCtrl.getTotalMoney();
+    
+        // Add today to ui money
+        UICtrl.showTotalMoney(totalMoney);
+
+        UICtrl.clearEditState();
+        
+        UICtrl.clearInput();
+    }
+
+
+    // Item Delete Submit
+
+    const itemDeleteSubmit = function(e){
+        // Get Current Item
+        const currentItem = ItemCtrl.getCurrentItem();
+        
+        // Delete From Data Structure
+        ItemCtrl.deleteItem(currentItem.id);
+
+        // Delete From UI
+        UICtrl.deleteListItem(currentItem.id)
+
+        // Get Total MOney
+        const totalMoney = ItemCtrl.getTotalMoney();
+
+        // Add today to ui money
+        UICtrl.showTotalMoney(totalMoney);
+
+        // Clear a Edit State
+        UICtrl.clearEditState();
+
+        // Clear Input
+        UICtrl.clearInput();
+
+        const getData = ItemCtrl.getItem();
+
+        if(getData.length === 0){
+            UICtrl.showItem();
+            document.querySelector("#item-list").style.display = "none";
+        }
+
+        
+    }
+
+    const clearAllItem = function(){
+        // // Data Clear
+        ItemCtrl.clearAllItems();
+
+        // // Remove From UI
+        UICtrl.removeItems();
+
+        //  // Get Total MOney
+         const totalMoney = ItemCtrl.getTotalMoney();
+    
+        //  // Add today to ui money
+         UICtrl.showTotalMoney(totalMoney);
+         UICtrl.showItem();
+         document.querySelector("#item-list").style.display = "none";
+         
+    }
+    
 
     return {
         // Intializing App
@@ -281,6 +433,7 @@ const App = (function (ItemCtrl, UICtrl) {
                 UICtrl.showTotalMoney(total);
             }
 
+            
             loadEventListeners();
         }
     }
@@ -308,3 +461,4 @@ App.init();
 // })();
 
 // console.log(test.name());
+
