@@ -1,0 +1,13 @@
+// const greeting = 'Hello World';
+// console.log(greeting);
+// const { person } = require("./myModule");
+// console.log(person.name);
+
+// import { person ,sayHello} from "./myModule";
+
+// import greeting from "./myModule";
+
+// console.log(person);
+// console.log(sayHello());
+
+// console.log(greeting);
