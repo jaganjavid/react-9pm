@@ -56,6 +56,55 @@ class UI {
             currentAlert.remove();
         }
     }
+
+    clearFields(){
+        this.titleInput.value = "";
+        this.bodyInput.value = "";
+    }
+
+    fillForm(data){
+        this.titleInput.value = data.title;
+        this.bodyInput.value = data.body;
+        this.idInput.value = data.id;
+        this.changeFormState("edit");
+    }
+
+    changeFormState(type){
+        if(type === "edit"){
+            this.postSubmit.textContent = "Update Post";
+            this.postSubmit.className = "post-submit btn btn-warning btn-block";
+
+            // Create btn
+            const button = document.createElement("button");
+            
+            // Add class
+            button.className = "post-cancel mt-3 btn btn-light";
+
+            // Add Style
+            button.style.width = "100%";
+            
+            button.appendChild(document.createTextNode("Cancel Edit"));
+
+            document.querySelector(".cancel").appendChild(button);
+
+            const currentBtn = document.querySelectorAll(".post-cancel");
+
+            if(currentBtn.length>1){
+               if(currentBtn[0]){
+                  currentBtn[0].remove();
+               }
+            }
+
+           
+        } else {
+            this.postSubmit.textContent = "Post It";
+            this.postSubmit.className = "post-submit btn btn-success btn-block";
+            // Remove Cancel btn
+            if(document.querySelector(".post-cancel")){
+                document.querySelector(".post-cancel").remove();
+            }
+        }
+    }
 }
 
 
