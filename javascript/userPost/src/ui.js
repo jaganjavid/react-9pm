@@ -69,10 +69,20 @@ class UI {
         this.changeFormState("edit");
     }
 
+    clearIdInput(){
+        this.idInput.value = "";
+    }
+
+    changeUpdatetoPost(){
+        this.postSubmit.textContent = "Post It";
+        this.postSubmit.className = "post-submit btn btn-success btn-block";
+        this.idInput = "";
+    }
+
     changeFormState(type){
         if(type === "edit"){
             this.postSubmit.textContent = "Update Post";
-            this.postSubmit.className = "post-submit btn btn-warning btn-block";
+            this.postSubmit.className = "post-submit btn btn-warning btn-block post-update";
 
             // Create btn
             const button = document.createElement("button");
@@ -88,6 +98,7 @@ class UI {
             document.querySelector(".cancel").appendChild(button);
 
             const currentBtn = document.querySelectorAll(".post-cancel");
+        
 
             if(currentBtn.length>1){
                if(currentBtn[0]){
@@ -103,6 +114,10 @@ class UI {
             if(document.querySelector(".post-cancel")){
                 document.querySelector(".post-cancel").remove();
             }
+
+            // Clear ID from the hidden field
+            this.clearIdInput();
+
         }
     }
 }

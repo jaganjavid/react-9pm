@@ -1,14 +1,9 @@
 {
   "posts": [
     {
-      "title": "Post 1",
-      "body": "This is a post 1",
+      "title": "Jagan Javid",
+      "body": "This is a post ",
       "id": 1
-    },
-    {
-      "title": "dsfsdfs",
-      "body": "sdfasdf",
-      "id": 2
     }
   ]
 }
