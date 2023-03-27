@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Load React API -->
+    <script src= "https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <!-- Load React DOM-->
+    <script src= "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <!-- Load Babel Compiler -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <title>React</title>
+</head>
+<body>
+
+    <h1>My react Website</h1>
+
+    <div id="banner"></div>
+
+    <footer>
+        <p>footer</p>
+    </footer>
+    
+
+    <script type="text/babel">
+        // component
+        const Banner = () => {
+            
+            const title = "Welcome to react course";
+            const subTitle = "This is a website for learning react";
+
+            const handleClick = (e) => {
+                console.log("you clicked me");
+                console.log("the site title is :",title);
+                console.log(e)
+            }
+
+            return (
+                <div>
+                    <h2>{title.toUpperCase()}</h2>
+                    <p>{subTitle}</p>
+                    <p>Today's data is : {new Date().toDateString()}</p>
+                    <p>Random Number : {Math.random() * 100}</p>
+                    <p>Banner Content</p>
+                    <button onClick={handleClick}>Click me</button>
+                </div>
+            )
+        }
+
+      //   Render the component to the DOM 
+      ReactDOM.render(<Banner/>, document.getElementById("banner"));
+    </script>
+
+ 
+</body>
+</html>
