@@ -26,3 +26,21 @@ for(let i = 0; i <= 10; i++){
 
 //   i++;
 // }
+
+var furits = ["apple", "orange", "perl"];
+
+const f = furits.forEach((furit) => {
+console.log(furit);
+})
+
+
+const fu = furits.map((furit) => {
+return furit;
+})
+
+const fi = furits.filter((furit) => {
+return furit === "apple";
+})
+
+console.log(fi);
+console.log(furits);
