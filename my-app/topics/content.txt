@@ -1,0 +1,14 @@
+What is React Fragment? 
+​ React Fragment is a feature in React that allows you to
+ return multiple elements from a React component by allowing 
+ you to group a list of children without adding extra nodes to the DOM. 
+ To return multiple elements from a React component, 
+ you'll need to wrap the element in a root element
+
+What is Child Props?
+Essentially, props. children is a special prop, 
+automatically passed to every component, that can be
+used to render the content included between the opening
+and closing tags when invoking a component. These kinds 
+of components are identified by the official documentation
+as “boxes”.
