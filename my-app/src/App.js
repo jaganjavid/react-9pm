@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Title from './components/Title';
 import Model from './components/Model';
+import EventList from './components/EventList';
 
 function App() {
   // state - data
@@ -61,19 +62,15 @@ function App() {
       <h1>My name is {name}</h1>
       <button onClick={handleClick}>Change Name</button>
 
-      {showEvents && events.map((event) => (
-        <React.Fragment key={event.id}>
-            <h2>{event.title}</h2>
-            <button onClick={() => handleRemove(event.id)}>Remove</button>
-        </React.Fragment>
-      ))}
+      {showEvents && <EventList events={events} handleClick={handleRemove}/>}
 
       {/* <Model>
         <h2>50% offer Coupon Code!</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, atque.</p>
       </Model> */}
-      {showModal && <Model handleModal={handleModal}>
-        <h3>50% offer Coupon Code!</h3>
+      
+      {showModal && <Model handleModal={handleModal} isStyleModel={false}>
+        <h2>50% offer Coupon Code!</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, atque.</p>
       </Model>}
 

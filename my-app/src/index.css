@@ -5,22 +5,6 @@ body {
     sans-serif;
 }
 
-.title{
-  display: inline-block;
-  padding: 30px 60px;
-  background-color: #f4f4f4;
-  border-radius: 8px;
-  font-weight: normal;
-  margin-bottom: 10px;
-}
-
-.subtitle{
-  display: block;
-  padding-bottom: 20px;
-  color: #555555;
-  border-radius: 8px;
-  font-weight: normal;
-  border-bottom: 1px solid #f4f4f4;
-  margin-top: 10px;
-  margin-bottom: 60px;
+.card{
+  background-color: green;
 }

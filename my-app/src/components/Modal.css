@@ -14,3 +14,17 @@
     background: #ffffff;
     border-radius: 10px;
 }
+
+.sales-btn{
+    background-color: blue;
+    border: none;
+    color: #ffffff;
+    padding: 10px 30px;
+}
+
+.modal-backdrop button{
+    background-color: brown;
+    border: none;
+    color: #ffffff;
+    padding: 10px 30px;
+}
