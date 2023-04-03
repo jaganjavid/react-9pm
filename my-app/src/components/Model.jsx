@@ -13,7 +13,7 @@ export default function Model({children,handleModal,isStyleModel}) {
           textAlign:"center"
         }}>
           {children}
-          <button className={isStyleModel ? "sales-btn" : ""} onClick={handleModal}>Close</button>
+          {/* <button className={isStyleModel ? "sales-btn" : ""} onClick={handleModal}>Close</button> */}
         </div>
     </div>
   )
