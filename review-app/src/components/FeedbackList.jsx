@@ -3,8 +3,8 @@ import FeedbackItem from './FeedbackItem';
 
 const FeedbackList = ({dataReview,handleDelete}) => {
 
-  const [review, setReview] = useState(6);
-  const [text, setText] = useState("Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, dolorum.");  
+  // const [review, setReview] = useState(6);
+  // const [text, setText] = useState("Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, dolorum.");  
 
 //   const handleClick = () => {
 //     setReview((prev) => {

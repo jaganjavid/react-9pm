@@ -1,5 +1,6 @@
 import './App.css';
 import Header from './components/Header';
+import {v4 as uuidv4} from 'uuid';
 import FeedbackList from './components/FeedbackList';
 import FeedbackStats from './components/FeedbackStats';
 import FeedbackForm from './components/FeedbackForm';
@@ -22,11 +23,18 @@ function App() {
   }
 
 
+  const addFeedback = (newFeedback) => {
+    newFeedback.id = uuidv4();
+    setReview([newFeedback, ...review]);
+  }
+
+
+
   return (
     <>
       <Header/>
       <div className="container">
-          <FeedbackForm/>
+          <FeedbackForm handleAdd={addFeedback}/>
           <FeedbackStats review={review}/>
           <FeedbackList dataReview={review} handleDelete={deleteFeedback}/>
           {/* <Card>
