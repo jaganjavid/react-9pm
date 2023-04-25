@@ -229,3 +229,9 @@ input:focus {
     width: 80%;
   }
 }
+
+.about{
+  position: fixed;
+  bottom: 25px;
+  right: 15px;
+}

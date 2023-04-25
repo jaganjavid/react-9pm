@@ -6,8 +6,9 @@ import FeedbackForm from './components/FeedbackForm';
 import { useState } from 'react';
 import ReviewData from './data/ReviewData';
 import { FeedbackProvider } from './context/FeedbackContext';
+import AboutPage from './pages/AboutPage';
+import { BrowserRouter, Routes , Route , Link} from 'react-router-dom';
 
-// import Card from './shared/Card';
 
 function App() {
 
@@ -18,11 +19,27 @@ function App() {
   return (
         <FeedbackProvider>
               <Header/>
+              <BrowserRouter>
                 <div className="container">
-                  <FeedbackForm/>
-                  <FeedbackStats/>
-                  <FeedbackList/>
+                  <Routes>
+                    <Route exact
+                           path='/'
+                           element={
+                            <>
+                              <FeedbackForm/>
+                              <FeedbackStats/>
+                              <FeedbackList/>
+                            </>
+                           }>
+                    </Route>
+                    <Route path='/about' element={<AboutPage/>}/>
+                    
+                  </Routes>
+                  <div className='about'>
+                    <Link to='/about'>Go to about</Link>
+                  </div>
                 </div>
+              </BrowserRouter>
         </FeedbackProvider>
 );
 }
