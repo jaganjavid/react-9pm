@@ -15,17 +15,15 @@ function App() {
   const [review, setReview] = useState(ReviewData);
 
 
-
-
   return (
- <FeedbackProvider>
-      <Header/>
-        <div className="container">
-        <FeedbackForm/>
-        <FeedbackStats/>
-        <FeedbackList/>
-        </div>
- </FeedbackProvider>
+        <FeedbackProvider>
+              <Header/>
+                <div className="container">
+                  <FeedbackForm/>
+                  <FeedbackStats/>
+                  <FeedbackList/>
+                </div>
+        </FeedbackProvider>
 );
 }
 
