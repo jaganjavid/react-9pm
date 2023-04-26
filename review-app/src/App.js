@@ -15,13 +15,13 @@ function App() {
   // Global state
   const [review, setReview] = useState(ReviewData);
 
-
   return (
         <FeedbackProvider>
               <Header/>
               <BrowserRouter>
                 <div className="container">
                   <Routes>
+
                     <Route exact
                            path='/'
                            element={
@@ -32,6 +32,7 @@ function App() {
                             </>
                            }>
                     </Route>
+                    
                     <Route path='/about' element={<AboutPage/>}/>
                     
                   </Routes>

@@ -4,7 +4,12 @@ import { useContext } from 'react';
 import FeedbackContext from '../context/FeedbackContext';
 
 const FeedbackList = ({handleDelete}) => {
-  const {feedback} = useContext(FeedbackContext);
+  const { feedback, isLoading } = useContext(FeedbackContext);
+
+  if(isLoading){
+    return <h3>Loading ...</h3>;
+  }
+
 
   return (
     <>
