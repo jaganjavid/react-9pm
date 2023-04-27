@@ -25,7 +25,8 @@ export const FeedbackProvider = ({children}) => {
     }
 
     const addFeedback = async (newFeedback) => {
-        const response = await fetch(`http://localhost:5000/feedback`, {
+        try{
+            const response = await fetch(`http://localhost:5000/feedback`, {
             method: "POST",
             headers: {
                 "Content-type" : "application/json"
@@ -38,6 +39,9 @@ export const FeedbackProvider = ({children}) => {
         // newFeedback.id = uuidv4();
 
         setFeedback([data, ...feedback]);
+        } catch(error){
+            console.log(error);
+        }
     }
 
     const updateFeedBack = async(id, updItem) => {
