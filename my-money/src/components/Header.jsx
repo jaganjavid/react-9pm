@@ -1,6 +1,14 @@
 import { Button, Menu, Text, Container } from "@mantine/core";
 
 const Header = () => {
+
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const logout = () => {
+    localStorage.removeItem("user");
+    window.location.href = "/login";
+  }
+
   return (
     <header style={{background:"#c37736"}}>
         <Container size={"lg"}>
@@ -12,13 +20,13 @@ const Header = () => {
                 <Menu
                 transitionProps={{transition: "pop"}}
                 position="top">
-                    <Menu.Target>
+                    {user && <Menu.Target>
                         <Button variant="white">
-                            Jagan
+                            {user && user.name}
                         </Button>
-                    </Menu.Target>
+                    </Menu.Target>}
                     <Menu.Dropdown>
-                        <Menu.Item>
+                        <Menu.Item onClick={logout}>
                             Logout
                         </Menu.Item>
                     </Menu.Dropdown>
